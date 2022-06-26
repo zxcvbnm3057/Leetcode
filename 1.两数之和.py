@@ -1,3 +1,9 @@
+'''
+Author: Fengying
+Date: 2019-12-25 06:40:04
+LastEditors: Fengying
+LastEditTime: 2022-06-26 13:55:29
+'''
 #
 # @lc app=leetcode.cn id=1 lang=python3
 #
@@ -7,20 +13,10 @@
 # @lc code=start
 class Solution:
     def twoSum(self, nums, target):
-        maxi = max(nums)
-        mini = min(nums)
-        n = len(nums)
-        for i in range(n):
-            if nums[i] + maxi < target or nums[i] + mini > target:
-                continue
-            i2=int(n/2)
-            while i!=i2:
-                if nums[i]+nums[i2]==target:
-                    return [i, i2]
-                elif nums[i] + nums[i2] > target:
-                    i2=i2-int(i2/2)
-                elif nums[i]+nums[i2]<target:
-                    i2=i2+int(i2/2)
+        for i in range(len(nums) - 1):
+            for j in range(len(nums) - 1-i):
+                if nums[i]+nums[j+i+1]==target:
+                    return i,j+i+1
 # @lc code=end
 
 a = Solution()
